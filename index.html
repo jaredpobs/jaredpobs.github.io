@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jared | Technical Account Manager &amp; Data Science</title>
+<meta name="description" content="Technical account manager in healthtech SaaS with a computer science degree and data science projects. Based in Singapore.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F5F7; --panel:#FFFFFF; --ink:#14232F; --muted:#51626F;
+  --line:#CBD6DE; --accent:#0B6E8F; --accent-ink:#FFFFFF; --tint:#E3EEF3;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#10202B; --panel:#172B38; --ink:#E8EFF3; --muted:#9DB0BD;
+  --line:#2C4352; --accent:#5CC0E0; --accent-ink:#10202B; --tint:#1D3443;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:400 1.0625rem/1.65 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;line-height:1.1;margin:0}
+h1{font-size:clamp(2.6rem,7vw,4.75rem);font-weight:700;letter-spacing:-.025em}
+h2{font-size:clamp(1.7rem,3.5vw,2.25rem);font-weight:700;letter-spacing:-.015em;margin-bottom:1.5rem}
+h3{font-size:1.2rem;font-weight:500}
+p{margin:0 0 1rem;max-width:62ch}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+nav .brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;color:var(--ink);text-decoration:none}
+nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}
+nav ul a{color:var(--muted);text-decoration:none}
+nav ul a:hover{color:var(--ink)}
+header.hero{padding:3rem 0 4rem}
+.hero .lede{font-size:1.25rem;color:var(--muted);max-width:44ch;margin-top:1.25rem}
+.translate{display:grid;grid-template-columns:1fr 1fr;margin-top:3rem;border:1px solid var(--line);
+  border-radius:6px;overflow:hidden;background:var(--panel)}
+.translate > div{padding:1.5rem}
+.translate .req{border-right:1px solid var(--line)}
+.translate .scope{background:var(--tint)}
+.translate h3{margin-bottom:.75rem}
+.translate .tag{display:block;color:var(--muted);font-size:.9rem;margin-bottom:.5rem}
+.translate ul{margin:0;padding-left:1.1rem}
+.translate li{margin-bottom:.4rem}
+.translate q{font-size:1.15rem;line-height:1.5}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.25rem}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1.4rem}
+.card h3{margin-bottom:.5rem}
+.card p{color:var(--muted);margin:0 0 .75rem;font-size:1rem}
+.card .stat{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;color:var(--accent)}
+.job{display:grid;grid-template-columns:12rem 1fr;gap:1.5rem}
+.job .when{color:var(--muted)}
+.job ul{margin:.5rem 0 0;padding-left:1.1rem}
+.job li{margin-bottom:.4rem}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:.8rem 1.4rem;
+  border-radius:4px;text-decoration:none;font-weight:500;margin-right:.75rem;margin-bottom:.5rem}
+.btn.alt{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+footer{padding:2rem 0 3rem;color:var(--muted);border-top:1px solid var(--line);font-size:.95rem}
+@media (max-width:42rem){
+  nav ul{gap:1rem}
+  .translate{grid-template-columns:1fr}
+  .translate .req{border-right:0;border-bottom:1px solid var(--line)}
+  .job{grid-template-columns:1fr;gap:.25rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Main">
+    <a class="brand" href="#top">Jared</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#background">Background</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <h1>I turn client requests into technical scope.</h1>
+    <p class="lede">Key account manager in healthtech SaaS with a computer science degree. I connect enterprise clients, developers, and documentation. Based in Singapore.</p>
+
+    <div class="translate" aria-label="Example of my work">
+      <div class="req">
+        <h3>Client request</h3>
+        <span class="tag">Example</span>
+        <q>Members should see their plan benefits in the portal without calling support.</q>
+      </div>
+      <div class="scope">
+        <h3>Technical scope</h3>
+        <span class="tag">What I hand to developers</span>
+        <ul>
+          <li>Data source and fields to expose</li>
+          <li>Rules for each plan type</li>
+          <li>Interface change and edge cases</li>
+          <li>Test cases and sign-off criteria</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section id="work">
+    <h2>Work</h2>
+    <div class="job">
+      <div class="when"><strong>Dashlabs.ai</strong><br>Healthtech SaaS, Philippines</div>
+      <div>
+        <h3>Key Account Manager</h3>
+        <p>I work as a technical account manager for enterprise healthcare clients.</p>
+        <ul>
+          <li>Translate client feature requests into technical scope.</li>
+          <li>Coordinate developers through delivery.</li>
+          <li>Write technical documentation for clients and internal teams.</li>
+          <li>Manage enterprise support tickets.</li>
+          <li>Lead and attend client meetings.</li>
+        </ul>
+        <p style="margin-top:1rem">Earlier roles at Dashlabs.ai: QA/Data Analyst, then Enterprise Support Manager.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Pedestrian detection</h3>
+        <p>YOLOv9 object detection model trained to find pedestrians in images.</p>
+        <span class="stat">92.9% mAP</span>
+      </article>
+      <article class="card">
+        <h3>Card game tier list generator</h3>
+        <p>Scrapes tournament data with Playwright, then builds tier lists with matplotlib. Runs as a Colab notebook.</p>
+        <a href="https://github.com/YOUR-GITHUB-USERNAME">View on GitHub</a>
+      </article>
+      <article class="card">
+        <h3>Ranked ladder notebook</h3>
+        <p>Pulls player data from the Riot API and ranks members of a Discord community.</p>
+        <a href="https://github.com/YOUR-GITHUB-USERNAME">View on GitHub</a>
+      </article>
+      <article class="card">
+        <h3>Grades analysis</h3>
+        <p>Linear regression study of the factors behind student grades.</p>
+        <a href="https://github.com/YOUR-GITHUB-USERNAME">View on GitHub</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="background">
+    <h2>Background</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>B.S. Computer Science</h3>
+        <p>Mapúa University, completed June 2025. Dean's Lister.</p>
+      </article>
+      <article class="card">
+        <h3>Research</h3>
+        <p>Two manuscripts submitted to ACM and IEEE conferences.</p>
+      </article>
+      <article class="card">
+        <h3>Certification</h3>
+        <p>Foundations of Cybersecurity.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>I am looking for technical customer-facing roles in Singapore. Send me a message.</p>
+    <p>
+      <a class="btn" href="mailto:YOUR-EMAIL@example.com">Email me</a>
+      <a class="btn alt" href="https://www.linkedin.com/in/YOUR-LINKEDIN">LinkedIn</a>
+      <a class="btn alt" href="https://github.com/YOUR-GITHUB-USERNAME">GitHub</a>
+    </p>
+  </section>
+
+  <footer>Jared. Singapore.</footer>
+</div>
+</body>
+</html>
