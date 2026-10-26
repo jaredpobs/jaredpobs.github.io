@@ -240,10 +240,10 @@ footer{padding:2rem 0 3rem;color:var(--muted);border-top:1px solid var(--line);f
 </dialog>
 <dialog class="modal" id="email-options" aria-labelledby="email-options-title" aria-describedby="email-options-description">
   <div class="modal-content">
-    <h2 id="email-options-title">Get in touch</h2>
+    <h2 id="email-options-title" tabindex="-1">Get in touch</h2>
     <p class="modal-description" id="email-options-description">Choose how you want to use my email address.</p>
     <div class="modal-actions">
-      <a class="btn" href="mailto:jaredoreniopoblete@gmail.com" type="button">Open email app</a>
+      <a class="btn" href="mailto:jaredoreniopoblete@gmail.com">Open email app</a>
       <button class="btn" id="copy-email" type="button">Copy address</button>
     </div>
     <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
@@ -287,6 +287,7 @@ footer{padding:2rem 0 3rem;color:var(--muted);border-top:1px solid var(--line);f
     copyStatus.textContent = "";
     copyStatus.removeAttribute("data-state");
     emailOptions.showModal();
+    document.querySelector("#email-options-title").focus();
   });
   emailOptions.querySelector(".modal-close").addEventListener("click", () => emailOptions.close());
   emailOptions.addEventListener("click", (event) => {
