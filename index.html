@@ -67,6 +67,11 @@ section{padding:3.5rem 0;border-top:1px solid var(--line)}
 .modal[open]{animation:modal-in .22s ease-out both}
 .modal::backdrop{background:#07131db3;backdrop-filter:blur(4px);animation:backdrop-in .2s ease-out both}
 .modal-content{padding:2rem}
+.modal-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem}
+.modal-actions .btn{margin:0}
+.copy-status{min-height:1.65em;margin:.85rem 0 0;color:var(--muted);font-size:.95rem}
+.copy-status[data-state="success"]{color:var(--accent)}
+.copy-status[data-state="error"]{color:#B42318}
 .modal-kicker{margin:0 0 .6rem;color:var(--accent);font-size:.8rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
 .modal h2{margin:0 2.5rem .8rem 0}
 .modal-description{margin:0;color:var(--muted);max-width:60ch}
@@ -83,6 +88,7 @@ section{padding:3.5rem 0;border-top:1px solid var(--line)}
 .job li{margin-bottom:.4rem}
 .btn{display:inline-block;background:var(--contact-bg);color:var(--contact-ink);padding:.8rem 1.4rem;
   border:1px solid var(--contact-bg);border-radius:4px;text-decoration:none;font-weight:500;margin-right:.75rem;margin-bottom:.5rem;
+  font:500 1rem/1.4 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;cursor:pointer;
   transition:background-color .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease}
 .btn:hover,.btn:focus-visible{background:var(--contact-hover);color:var(--contact-hover-ink);border-color:var(--contact-hover);
   box-shadow:0 5px 16px color-mix(in srgb,var(--accent) 30%,transparent);transform:translateY(-2px)}
@@ -216,9 +222,9 @@ footer{padding:2rem 0 3rem;color:var(--muted);border-top:1px solid var(--line);f
     <h2>Contact</h2>
     <p>I am looking for technical customer-facing roles in Singapore. Send me a message.</p>
     <p>
-      <a class="btn" href="mailto:jaredoreniopoblete@gmail.com">Email me</a>
-      <a class="btn" href="https://www.linkedin.com/in/jopoblete/">LinkedIn</a>
-      <a class="btn" href="https://github.com/jaredpobs">GitHub</a>
+      <button class="btn" id="email-options-trigger" type="button">Email me</button>
+      <a class="btn" href="https://www.linkedin.com/in/jopoblete/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a class="btn" href="https://github.com/jaredpobs" target="_blank" rel="noopener noreferrer">GitHub</a>
     </p>
   </section>
 
@@ -229,6 +235,18 @@ footer{padding:2rem 0 3rem;color:var(--muted);border-top:1px solid var(--line);f
     <p class="modal-kicker" id="modal-kind"></p>
     <h2 id="modal-title"></h2>
     <p class="modal-description" id="modal-description"></p>
+    <button class="modal-close" type="button" aria-label="Close dialog">&times;</button>
+  </div>
+</dialog>
+<dialog class="modal" id="email-options" aria-labelledby="email-options-title" aria-describedby="email-options-description">
+  <div class="modal-content">
+    <h2 id="email-options-title">Get in touch</h2>
+    <p class="modal-description" id="email-options-description">Choose how you want to use my email address.</p>
+    <div class="modal-actions">
+      <a class="btn" href="mailto:jaredoreniopoblete@gmail.com">Open email app</a>
+      <button class="btn" id="copy-email" type="button">Copy address</button>
+    </div>
+    <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
     <button class="modal-close" type="button" aria-label="Close dialog">&times;</button>
   </div>
 </dialog>
@@ -258,6 +276,33 @@ footer{padding:2rem 0 3rem;color:var(--muted);border-top:1px solid var(--line);f
     if (event.target === modal) modal.close();
   });
   modal.addEventListener("close", () => lastTrigger?.focus());
+
+  const emailOptions = document.querySelector("#email-options");
+  const emailOptionsTrigger = document.querySelector("#email-options-trigger");
+  const copyEmailButton = document.querySelector("#copy-email");
+  const copyStatus = document.querySelector("#copy-status");
+  const emailAddress = "jaredoreniopoblete@gmail.com";
+
+  emailOptionsTrigger.addEventListener("click", () => {
+    copyStatus.textContent = "";
+    copyStatus.removeAttribute("data-state");
+    emailOptions.showModal();
+  });
+  emailOptions.querySelector(".modal-close").addEventListener("click", () => emailOptions.close());
+  emailOptions.addEventListener("click", (event) => {
+    if (event.target === emailOptions) emailOptions.close();
+  });
+  emailOptions.addEventListener("close", () => emailOptionsTrigger.focus());
+  copyEmailButton.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(emailAddress);
+      copyStatus.textContent = "Copied to clipboard";
+      copyStatus.dataset.state = "success";
+    } catch {
+      copyStatus.textContent = "Could not copy the address. Please copy it manually: " + emailAddress;
+      copyStatus.dataset.state = "error";
+    }
+  });
 
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries, currentObserver) => {
